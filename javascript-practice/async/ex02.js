@@ -15,13 +15,18 @@ const myAsyncFn02 = function(param){
     });
 }
 
-// test01 : success
-myAsyncFn02("data")
-    .then(function(result){
-        console.log(result)
-    })
-    .catch(function(error){
-        console.log(error)
-    });
+if(require.main == module){
+    // test01 : success
+    myAsyncFn02("data")
+        .then(function(result){
+            console.log(result)
+        })
+        .catch(function(error){
+            console.log(error)
+        });
 
-console.log("wait........");
+    console.log("wait........");
+} else{
+    module.exports = myAsyncFn02;
+}
+
